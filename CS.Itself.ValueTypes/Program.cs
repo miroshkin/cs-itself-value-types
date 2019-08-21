@@ -2,11 +2,28 @@
 
 namespace CS.Itself.ValueTypes
 {
-    class Program
+    struct S
     {
-        static void Main(string[] args)
+        private double X;
+
+        static int Main()
         {
-            Console.WriteLine("Hello World!");
+            try
+            {
+                var a = new S(){X = 0.0};
+                var b = new S(){X = -0.0};
+
+                Console.WriteLine(a.X.Equals(b.X)); //True      
+                Console.WriteLine(a.Equals(b)); //True
+                return 0;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return 1;
+            }
+            
+
         }
     }
 }
